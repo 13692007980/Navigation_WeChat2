@@ -1,0 +1,43 @@
+<view class="user-wrapper">
+<view class="user-header">
+  <view class="user-bgimg user-box"></view>
+  <view class="user-bg user-box"></view>
+  <view class="user-message user-box">
+    <view class="user-message-list">
+      <view class="user-img">
+        <image wx:if="{{!loginBool}}" class="user-myimg" src="../../images/my.png"></image>
+        <image wx:if="{{loginBool}}" class="user-myimg" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="user-login-message" wx:if="{{!loginBool}}">未登录</view>
+      <view class="user-login-message2" wx:if="{{loginBool}}">
+        <view class="user-name">
+          {{userInfo.nickName}}
+        </view>
+      </view>
+      <view class="user-login" wx:if="{{!loginBool}}">
+        <button class="user-login-btn" style="margin: 0; color: blue; border: 3rpx solid blue; width: 240rpx; font-size: 28rpx; border-radius: 40rpx; background: #fff;" bindtap="LoginBtn" open-type="getUserInfo">登录/注册</button>
+      </view>
+    </view>
+  </view>
+</view>
+  <view class="sign-wrapper" wx:if="{{!loginBool}}">
+    <view class="sign-num" wx:if="{{!loginBool}}">请先登录</view>
+  </view>
+  <view class="system-content" wx:if="{{loginBool}}">
+    <view class="system-item">
+      当前设备：
+      <view class="system-te">{{model}}</view>
+    </view>
+    <view class="system-item">
+      当前操作系统及版本：
+      <view class="system-te">{{system}}</view>
+    </view>
+    <view class="system-item">
+      当前微信版本号：
+      <view class="system-te">{{version}}</view>
+    </view>
+  </view>
+  <view class="anlogin-box" wx:if="{{loginBool}}">
+    <button style="width: 80%; background: red; color: #fff;" bindtap="CloseLogin">退出登录</button>
+  </view>
+</view>
